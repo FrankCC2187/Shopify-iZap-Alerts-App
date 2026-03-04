@@ -1,0 +1,32 @@
+client_id = "8836f0f0cb6aa6616ca198f7ecf065a7"
+name = "i-Zap Alerts"
+application_url = "https://francisco-showing-equal-missed.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2025-10"
+
+  [[webhooks.subscriptions]]
+  topics = ["app/uninstalled"]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = ["app/scopes_update"]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = ["inventory_levels/update"]
+  uri = "/webhooks/inventory_levels_update"
+
+[access_scopes]
+scopes = "write_products, read_inventory"
+
+[auth]
+redirect_urls = [
+  "https://francisco-showing-equal-missed.trycloudflare.com/auth/callback",
+  "https://francisco-showing-equal-missed.trycloudflare.com/api/auth/callback"
+]
